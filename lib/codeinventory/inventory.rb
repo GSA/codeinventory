@@ -7,11 +7,7 @@ module CodeInventory
     end
 
     def projects
-      projects = []
-      @sources.each do |source|
-        projects << source.projects
-      end
-      projects.flatten
+      @sources.collect { |source| source.projects }.flatten
     end
   end
 end
