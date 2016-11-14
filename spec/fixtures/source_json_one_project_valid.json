@@ -2,8 +2,8 @@
   "name": "Product Three",
   "description": "A third awesome product.",
   "license": "http://www.usa.gov/publicdomain/label/1.0/",
-  "openSourceProject": "1",
-  "governmentWideReuseProject": "1",
+  "openSourceProject": 1,
+  "governmentWideReuseProject": 1,
   "tags": [
     "usa"
   ],

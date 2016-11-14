@@ -3,8 +3,8 @@
     "name": "Product One",
     "description": "An awesome product.",
     "license": "http://www.usa.gov/publicdomain/label/1.0/",
-    "openSourceProject": "1",
-    "governmentWideReuseProject": "1",
+    "openSourceProject": 1,
+    "governmentWideReuseProject": 1,
     "tags": [
       "usa"
     ],
@@ -16,8 +16,8 @@
     "name": "Product Two",
     "description": "Another awesome product.",
     "license": "http://www.usa.gov/publicdomain/label/1.0/",
-    "openSourceProject": "0",
-    "governmentWideReuseProject": "0",
+    "openSourceProject": 0,
+    "governmentWideReuseProject": 0,
     "tags": [
       "national-security",
       "top-secret"
