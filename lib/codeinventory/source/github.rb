@@ -1,5 +1,4 @@
 require "octokit"
-require "base64"
 require "yaml"
 
 module CodeInventory
