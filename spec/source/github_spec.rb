@@ -28,8 +28,8 @@ describe "CodeInventory::Source::GitHub" do
       stub_request(:get, "https://api.github.com/repos/GSA/ProductTwo/contents/.codeinventory.json").to_return(:status => 200, :body => file_fixture("github_product_two_contents_response.json"), :headers => {"Content-Type" => "application/json"})
       projects = @github_source.projects
       projects.count.must_equal 2
-      projects.first[:name].must_equal "Product One"
-      projects.last[:name].must_equal "Product Two"
+      projects.first["name"].must_equal "Product One"
+      projects.last["name"].must_equal "Product Two"
     end
 
     it "provides an empty list when there are no qualifying repositories" do

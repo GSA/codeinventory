@@ -31,9 +31,9 @@ module CodeInventory
             end
           end
           if type == :yaml
-            projects << JSON.parse(JSON.dump(YAML.load(raw_content)), symbolize_names: true)
+            projects << YAML.load(raw_content).to_hash
           elsif type == :json
-            projects << JSON.parse(raw_content, symbolize_names: true)
+            projects << JSON.parse(raw_content)
           end
         end
         projects
