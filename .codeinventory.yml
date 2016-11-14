@@ -1,0 +1,9 @@
+name: CodeInventory
+description: A Ruby gem that harvests project metadata from an agency's repositories.
+license: https://github.com/jfredrickson5/codeinventory/blob/master/LICENSE.md
+openSourceProject: 1
+governmentWideReuseProject: 1
+tags:
+  - code.gov
+contact:
+  email: jeffrey.fredrickson@gsa.gov
