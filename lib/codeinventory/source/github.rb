@@ -1,5 +1,6 @@
 require "octokit"
 require "yaml"
+require "base64"
 
 module CodeInventory
   module Source
@@ -7,6 +8,7 @@ module CodeInventory
       attr_accessor :org
 
       def initialize(access_token:, org:)
+        Octokit.auto_paginate = true
         @access_token = access_token
         @org = org
       end
@@ -16,17 +18,23 @@ module CodeInventory
         projects = []
         repos.each do |repo|
           begin
-            project_data = client.contents(repo[:full_name], path: ".codeinventory.yml")
-            project = JSON.parse(JSON.dump(YAML.load(project_data)), symbolize_names: true)
+            contents_metadata = client.contents(repo[:full_name], path: ".codeinventory.yml")
+            type = :yaml
+            raw_content = Base64.decode64(contents_metadata[:content])
           rescue Octokit::NotFound
             begin
-              project_data = client.contents(repo[:full_name], path: ".codeinventory.json")
-              project = project_data.to_hash
+              contents_metadata = client.contents(repo[:full_name], path: ".codeinventory.json")
+              type = :json
+              raw_content = Base64.decode64(contents_metadata[:content])
             rescue Octokit::NotFound
               # Ignore repositories that don't have a CodeInventory metadata file
             end
           end
-          projects << project unless project.nil?
+          if type == :yaml
+            projects << JSON.parse(JSON.dump(YAML.load(raw_content)), symbolize_names: true)
+          elsif type == :json
+            projects << JSON.parse(raw_content, symbolize_names: true)
+          end
         end
         projects
       end
