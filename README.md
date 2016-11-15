@@ -28,6 +28,8 @@ Or install it yourself as:
 
 ## Usage
 
+Basically:
+
 ```ruby
 json_source = CodeInventory::Source::JSONFile.new(File.new("some_projects.json"))
 csv_source = CodeInventory::Source::CSVFile.new(File.new("more_projects.csv"))
@@ -36,6 +38,61 @@ github_source = CodeInventory::Source::GitHub.new(access_token: "GITHUB_ACCESS_T
 inventory = CodeInventory::Inventory.new(json_source, csv_source, github_source)
 inventory.projects # Returns an array of all projects
 ```
+
+### JSON Source
+
+When using `CodeInventory::Source::JSONFile`, the source file is expected to be a JSON file in the following format:
+
+```json
+[
+  {
+    "name": "Product One",
+    "description": "An awesome product.",
+    "license": "http://www.usa.gov/publicdomain/label/1.0/",
+    "openSourceProject": 1,
+    "governmentWideReuseProject": 1,
+    "tags": [
+      "usa"
+    ],
+    "contact": {
+      "email": "example@example.com"
+    }
+  },
+  {
+    "name": "Product Two",
+    "description": "Another awesome product.",
+    "license": "http://www.usa.gov/publicdomain/label/1.0/",
+    "openSourceProject": 0,
+    "governmentWideReuseProject": 0,
+    "tags": [
+      "national-security",
+      "top-secret"
+    ],
+    "contact": {
+      "email": "example@example.com"
+    }
+  }
+]
+
+```
+
+See the [Code.gov documentation](https://code.gov/#/policy-guide/docs/compliance/inventory-code) for specifics on required fields and value types.
+
+### CSV Source
+
+When using `CodeInventory::Source::CSVFile`, the source file is expected to be a CSV file in the following format:
+
+```csv
+name,description,license,openSourceProject,governmentWideReuseProject,tags,contact.email
+Product One,An awesome product.,http://www.usa.gov/publicdomain/label/1.0/,1,1,usa,example@example.com
+Product Two,Another awesome product.,http://www.usa.gov/publicdomain/label/1.0/,0,0,"national-security,top-secret",example@example.com
+```
+
+See the [Code.gov documentation](https://code.gov/#/policy-guide/docs/compliance/inventory-code) for specifics on required fields and value types.
+
+### GitHub Source
+
+When using `CodeInventory::Source::GitHub`, provide a [GitHub access token](https://developer.github.com/v3/oauth/) and the GitHub organization name (e.g., "[GSA](https://github.com/GSA/)").
 
 ## Development
 
