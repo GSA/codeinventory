@@ -92,7 +92,39 @@ See the [Code.gov documentation](https://code.gov/#/policy-guide/docs/compliance
 
 ### GitHub Source
 
-When using `CodeInventory::Source::GitHub`, provide a [GitHub access token](https://developer.github.com/v3/oauth/) and the GitHub organization name (e.g., "[GSA](https://github.com/GSA/)").
+When using `CodeInventory::Source::GitHub`, provide a [GitHub access token](https://developer.github.com/v3/oauth/) and the GitHub organization name (e.g., "[GSA](https://github.com/GSA/)"). Each repository within the organization that needs to be included in the project listing should have a `.codeinventory.yml` or `.codeinventory.json` file in the repository's root directory.
+
+#### YAML Format (.codeinventory.yml)
+
+```yaml
+name: Product One
+description: An awesome product.
+license: http://www.usa.gov/publicdomain/label/1.0/
+openSourceProject: 1
+governmentWideReuseProject: 1
+tags:
+  - usa
+contact:
+  email: example@example.com
+```
+
+#### JSON Format (.codeinventory.json)
+
+```json
+{
+  "name": "Product One",
+  "description": "An awesome product.",
+  "license": "http://www.usa.gov/publicdomain/label/1.0/",
+  "openSourceProject": 1,
+  "governmentWideReuseProject": 1,
+  "tags": [
+    "usa"
+  ],
+  "contact": {
+    "email": "example@example.com"
+  }
+}
+```
 
 ## Development
 
