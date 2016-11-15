@@ -1,6 +1,12 @@
 # CodeInventory: The People's Code
 
-The `codeinventory` gem is a tool to harvest project metadata from an agency's repositories. The harvested metadata can be used to produce a [code.json](https://code.gov/#/policy-guide/docs/compliance/inventory-code) file for [Code.gov](https://code.gov/).
+The `codeinventory` gem is a tool to harvest project metadata from an agency's repositories. The harvested metadata can be used to produce a [code.json](https://code.gov/#/policy-guide/docs/compliance/inventory-code) file for [Code.gov](https://code.gov/). The gem includes the ability to pull project metadata from these sources:
+
+* JSON files
+* CSV files
+* GitHub
+
+More sources can be added.
 
 ## Installation
 
@@ -20,7 +26,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+json_source = CodeInventory::Source::JSONFile.new(File.new("some_projects.json"))
+csv_source = CodeInventory::Source::CSVFile.new(File.new("more_projects.csv"))
+github_source = CodeInventory::Source::GitHub.new(access_token: "GITHUB_ACCESS_TOKEN", org: "github_org_name")
+
+inventory = CodeInventory::Inventory.new(json_source, csv_source, github_source)
+inventory.projects # Returns an array of all projects
+```
 
 ## Development
 
