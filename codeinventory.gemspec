@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Harvests project metadata from an agency's repositories to build a code inventory.}
   spec.description   = %q{Harvests project metadata from an agency's repositories to build a code inventory. This helps agencies comply with the Federal Source Code Policy.}
   spec.homepage      = "https://github.com/GSA/codeinventory"
+  spec.license       = "CC0-1.0"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
