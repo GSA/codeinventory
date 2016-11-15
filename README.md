@@ -1,5 +1,7 @@
 # CodeInventory: The People's Code
 
+*_This is an experimental gem that is currently in an alpha stage. The features and interface are unstable and may change at any time._*
+
 The `codeinventory` gem is a tool to harvest project metadata from an agency's repositories. The harvested metadata can be used to produce a [code.json](https://code.gov/#/policy-guide/docs/compliance/inventory-code) file for [Code.gov](https://code.gov/). The gem includes the ability to pull project metadata from these sources:
 
 * JSON files
