@@ -9,7 +9,7 @@ WebMock.disable_net_connect!(allow_localhost: true)
 
 def file_fixture(fixture_name)
   file = Pathname.new(File.dirname(__FILE__)) + "fixtures" + fixture_name
-  if File.exists? file
+  if File.exist? file
     file
   else
     raise ArgumentError, "the fixtures directory does not contain a file named '#{fixture_name}'"
