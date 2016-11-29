@@ -30,6 +30,9 @@ module CodeInventory
 
       private
 
+      # Convert a dotted notation header and a value to a nested hash
+      # e.g., "contact.email" header with value "me@example.com" becomes
+      # { "contact" => { "email" => "me@example.com" } }
       def dotted_to_nested(path, value)
         path.split(".").reverse.inject(value) do |hash, element|
           { element => hash }
