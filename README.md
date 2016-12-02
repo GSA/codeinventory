@@ -6,9 +6,8 @@ The `codeinventory` gem is a tool to harvest project metadata from an agency's r
 
 * JSON files
 * CSV files
-* GitHub
 
-More sources can be added.
+More sources can be added via plugins.
 
 ## Installation
 
@@ -33,10 +32,9 @@ Basically:
 ```ruby
 json_source = CodeInventory::Source::JSONFile.new(File.new("some_projects.json"))
 csv_source = CodeInventory::Source::CSVFile.new(File.new("more_projects.csv"))
-github_source = CodeInventory::Source::GitHub.new(access_token: "GITHUB_ACCESS_TOKEN", org: "github_org_name")
 
-inventory = CodeInventory::Inventory.new(json_source, csv_source, github_source)
-inventory.projects # Returns an array of all projects
+inventory = CodeInventory::Inventory.new(json_source, csv_source)
+inventory.projects # Returns an array of all projects in the JSON and CSV files
 ```
 
 ### JSON Source
@@ -89,42 +87,6 @@ Product Two,Another awesome product.,http://www.usa.gov/publicdomain/label/1.0/,
 ```
 
 See the [Code.gov documentation](https://code.gov/#/policy-guide/docs/compliance/inventory-code) for specifics on required fields and value types.
-
-### GitHub Source
-
-When using `CodeInventory::Source::GitHub`, provide a [GitHub access token](https://developer.github.com/v3/oauth/) and the GitHub organization name (e.g., "[GSA](https://github.com/GSA/)"). Each repository within the organization that needs to be included in the project listing should have a `.codeinventory.yml` or `.codeinventory.json` file in the repository's root directory.
-
-#### YAML Format (.codeinventory.yml)
-
-```yaml
-name: Product One
-description: An awesome product.
-license: http://www.usa.gov/publicdomain/label/1.0/
-openSourceProject: 1
-governmentWideReuseProject: 1
-tags:
-  - usa
-contact:
-  email: example@example.com
-```
-
-#### JSON Format (.codeinventory.json)
-
-```json
-{
-  "name": "Product One",
-  "description": "An awesome product.",
-  "license": "http://www.usa.gov/publicdomain/label/1.0/",
-  "openSourceProject": 1,
-  "governmentWideReuseProject": 1,
-  "tags": [
-    "usa"
-  ],
-  "contact": {
-    "email": "example@example.com"
-  }
-}
-```
 
 ## Development
 
