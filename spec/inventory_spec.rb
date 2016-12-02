@@ -4,8 +4,8 @@ describe "CodeInventory::Inventory" do
   before do
     json_file_two_projects = file_fixture("source_json_two_projects_valid.json")
     json_file_one_project = file_fixture("source_json_one_project_valid.json")
-    @json_source_two_projects = CodeInventory::Source::JSONFile.new(json_file_two_projects)
-    @json_source_one_project = CodeInventory::Source::JSONFile.new(json_file_one_project)
+    @json_source_two_projects = CodeInventory::JSONFile.new(json_file_two_projects)
+    @json_source_one_project = CodeInventory::JSONFile.new(json_file_one_project)
   end
 
   describe ".new" do

@@ -1,9 +1,9 @@
 require "spec_helper"
 
-describe "CodeInventory::Source::CSVFile" do
+describe "CodeInventory::CSVFile" do
   before do
     csv_file = file_fixture("two_projects.csv")
-    @csv_source = CodeInventory::Source::CSVFile.new(csv_file)
+    @csv_source = CodeInventory::CSVFile.new(csv_file)
   end
 
   describe ".new" do
@@ -14,8 +14,8 @@ describe "CodeInventory::Source::CSVFile" do
     it "detects invalid headers" do
       csv_file1 = file_fixture("two_projects_noheader.csv")
       csv_file2 = file_fixture("two_projects_invalidheader.csv")
-      proc { CodeInventory::Source::CSVFile.new(csv_file1) }.must_raise CodeInventory::Source::FileFormatError
-      proc { CodeInventory::Source::CSVFile.new(csv_file2) }.must_raise CodeInventory::Source::FileFormatError
+      proc { CodeInventory::CSVFile.new(csv_file1) }.must_raise CodeInventory::FileFormatError
+      proc { CodeInventory::CSVFile.new(csv_file2) }.must_raise CodeInventory::FileFormatError
     end
   end
 

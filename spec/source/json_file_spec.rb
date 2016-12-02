@@ -1,10 +1,10 @@
 require "spec_helper"
 
-describe "CodeInventory::Source::JSONFile" do
+describe "CodeInventory::JSONFile" do
   describe ".new" do
     before do
       json_file = file_fixture("source_json_two_projects_valid.json")
-      @json_source = CodeInventory::Source::JSONFile.new(json_file)
+      @json_source = CodeInventory::JSONFile.new(json_file)
     end
 
     describe "when a pathname to a JSON file is given" do
@@ -17,7 +17,7 @@ describe "CodeInventory::Source::JSONFile" do
   describe ".projects" do
     before do
       json_file = file_fixture("source_json_two_projects_valid.json")
-      @json_source = CodeInventory::Source::JSONFile.new(json_file)
+      @json_source = CodeInventory::JSONFile.new(json_file)
     end
 
     it "provides a list of projects" do
