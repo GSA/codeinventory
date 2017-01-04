@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "codeinventory/cli"
+
+CodeInventory::CLI::App.start(ARGV)

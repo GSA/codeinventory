@@ -1,0 +1,1 @@
+require "codeinventory/cli/app"

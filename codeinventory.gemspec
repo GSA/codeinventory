@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry", "~> 0.10"
 
   spec.add_runtime_dependency "octokit", "~> 4.6"
+  spec.add_runtime_dependency "thor", "~> 0.19"
 end
