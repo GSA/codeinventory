@@ -30,8 +30,8 @@ Or install it yourself as:
 Basically:
 
 ```ruby
-json_source = CodeInventory::Source::JSONFile.new(File.new("some_projects.json"))
-csv_source = CodeInventory::Source::CSVFile.new(File.new("more_projects.csv"))
+json_source = CodeInventory::JSONFile.new(File.new("some_projects.json"))
+csv_source = CodeInventory::CSVFile.new(File.new("more_projects.csv"))
 
 inventory = CodeInventory::Inventory.new(json_source, csv_source)
 inventory.projects # Returns an array of all projects in the JSON and CSV files
@@ -39,7 +39,7 @@ inventory.projects # Returns an array of all projects in the JSON and CSV files
 
 ### JSON Source
 
-When using `CodeInventory::Source::JSONFile`, the source file is expected to be a JSON file in the following format:
+When using `CodeInventory::JSONFile`, the source file is expected to be a JSON file in the following format:
 
 ```json
 [
@@ -78,7 +78,7 @@ See the [Code.gov documentation](https://code.gov/#/policy-guide/docs/compliance
 
 ### CSV Source
 
-When using `CodeInventory::Source::CSVFile`, the source file is expected to be a CSV file in the following format:
+When using `CodeInventory::CSVFile`, the source file is expected to be a CSV file in the following format:
 
 ```csv
 name,description,license,openSourceProject,governmentWideReuseProject,tags,contact.email
