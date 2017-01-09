@@ -11,6 +11,15 @@ More sources can be added via plugins:
 
 * [GitHub](https://github.com/GSA/codeinventory-github)
 
+## Table of Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+  * [JSON Source](#json-source)
+  * [CSV Source](#csv-source)
+* [Development](#development)
+* [Contributing](#contributing)
+
 ## Installation
 
 Add this line to your application's Gemfile:
