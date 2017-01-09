@@ -2,4 +2,4 @@
 
 require "codeinventory/cli"
 
-CodeInventory::CLI::App.start(ARGV)
+CodeInventory::CLI.start
