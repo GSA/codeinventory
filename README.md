@@ -15,6 +15,7 @@ More sources can be added via plugins:
 
 * [Installation](#installation)
 * [Usage](#usage)
+  * [CLI](#cli)
   * [JSON Source](#json-source)
   * [CSV Source](#csv-source)
   * [Multiple Sources](#multiple-sources)
@@ -38,6 +39,38 @@ Or install it yourself as:
     $ gem install codeinventory
 
 ## Usage
+
+### CLI
+
+After installing this gem, you can run `codeinv`, an extensible command-line interface (CLI).
+
+```
+$ codeinv
+Commands:
+  codeinv csv FILENAME    # Build an inventory from a CSV file
+  codeinv help [COMMAND]  # Describe available commands or one specific command
+  codeinv json FILENAME   # Build an inventory from a JSON file
+```
+
+To generate a code inventory from an existing CSV file, for instance:
+
+```
+codeinv csv my_csv_file.csv
+```
+
+For information on the required format of JSON and CSV input files, see [JSON Source](#json-source) and [CSV Source](#csv-source).
+
+The CLI can be extended to support other sources just by installing a gem. For instance, if you install the [codeinventory-github](https://github.com/GSA/codeinventory-github) gem, you'll automatically get the `github` subcommand:
+
+```
+$ codeinv
+Commands:
+  codeinv csv FILENAME                                     # Build an inventory from a CSV file
+  codeinv github GITHUB_ACCESS_TOKEN GITHUB_ORG [OPTIONS]  # Build an inventory from GitHub
+  codeinv help [COMMAND]                                   # Describe available commands or one s...
+  codeinv json FILENAME                                    # Build an inventory from a JSON file
+```
+
 
 ### JSON Source
 
