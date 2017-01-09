@@ -7,7 +7,9 @@ The `codeinventory` gem is a tool to harvest project metadata from an agency's r
 * JSON files
 * CSV files
 
-More sources can be added via plugins.
+More sources can be added via plugins:
+
+* [GitHub](https://github.com/GSA/codeinventory-github)
 
 ## Installation
 
