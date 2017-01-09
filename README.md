@@ -24,6 +24,8 @@ More sources can be added via plugins:
 
 ## Installation
 
+You will need [Ruby](https://www.ruby-lang.org/en/) on your system in order to install and use this gem.
+
 Add this line to your application's Gemfile:
 
 ```ruby
