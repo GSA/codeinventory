@@ -17,6 +17,7 @@ More sources can be added via plugins:
 * [Usage](#usage)
   * [JSON Source](#json-source)
   * [CSV Source](#csv-source)
+  * [Multiple Sources](#multiple-sources)
 * [Development](#development)
 * [Contributing](#contributing)
 
@@ -38,17 +39,14 @@ Or install it yourself as:
 
 ## Usage
 
-Basically:
+### JSON Source
 
 ```ruby
 json_source = CodeInventory::JSONFile.new(File.new("some_projects.json"))
-csv_source = CodeInventory::CSVFile.new(File.new("more_projects.csv"))
 
-inventory = CodeInventory::Inventory.new(json_source, csv_source)
-inventory.projects # Returns an array of all projects in the JSON and CSV files
+inventory = CodeInventory::Inventory.new(json_source)
+inventory.projects # Returns an array of all projects in the JSON file
 ```
-
-### JSON Source
 
 When using `CodeInventory::JSONFile`, the source file is expected to be a JSON file in the following format:
 
@@ -89,6 +87,13 @@ See the [Code.gov documentation](https://code.gov/#/policy-guide/docs/compliance
 
 ### CSV Source
 
+```ruby
+csv_source = CodeInventory::CSVFile.new(File.new("more_projects.csv"))
+
+inventory = CodeInventory::Inventory.new(csv_source)
+inventory.projects # Returns an array of all projects in the CSV file
+```
+
 When using `CodeInventory::CSVFile`, the source file is expected to be a CSV file in the following format:
 
 ```csv
@@ -98,6 +103,18 @@ Product Two,Another awesome product.,http://www.usa.gov/publicdomain/label/1.0/,
 ```
 
 See the [Code.gov documentation](https://code.gov/#/policy-guide/docs/compliance/inventory-code) for specifics on required fields and value types.
+
+### Multiple Sources
+
+You can combine multiple sources when building an inventory.
+
+```ruby
+json_source = CodeInventory::JSONFile.new(File.new("some_projects.json"))
+csv_source = CodeInventory::CSVFile.new(File.new("more_projects.csv"))
+
+inventory = CodeInventory::Inventory.new(json_source, csv_source)
+inventory.projects # Returns an array of all projects in the JSON and CSV files
+```
 
 ## Development
 
