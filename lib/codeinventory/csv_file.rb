@@ -12,7 +12,7 @@ module CodeInventory
     def projects
       @csv.collect do |row|
         csv_data = row.to_hash
-        csv_data.inject({}) do |memo, pair|
+        project = csv_data.inject({}) do |memo, pair|
           csv_header, csv_value = pair
           case
           when csv_header == "tags"
@@ -24,6 +24,8 @@ module CodeInventory
           end
           memo.merge(new_pair)
         end
+        yield project if block_given?
+        project
       end
     end
 

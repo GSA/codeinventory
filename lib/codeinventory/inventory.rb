@@ -7,7 +7,12 @@ module CodeInventory
     end
 
     def projects
-      @sources.collect { |source| source.projects }.flatten
+      @sources.collect { |src|
+        src.projects do |project|
+          yield project, src if block_given?
+          project
+        end
+      }.flatten
     end
   end
 end
