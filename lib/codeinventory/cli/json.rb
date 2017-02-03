@@ -5,8 +5,8 @@ require "pathname"
 module CodeInventory
   module CLI
     class App < Thor
-      desc "json FILENAME", "Build an inventory from a JSON file"
-      def json(filename)
+      desc "json AGENCY FILENAME", "Build an inventory from a JSON file"
+      def json(agency, filename)
         file = Pathname.new(filename)
         unless File.exist? file
           puts "No such file: #{file}"
@@ -14,8 +14,8 @@ module CodeInventory
         end
         source = CodeInventory::JSONFile.new(file)
         inventory = CodeInventory::Inventory.new(source)
-        projects = inventory.projects
-        puts JSON.pretty_generate(projects)
+        output = inventory.generate(agency, "1.0.1")
+        puts JSON.pretty_generate(output)
       end
     end
   end
