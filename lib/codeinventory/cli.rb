@@ -2,6 +2,7 @@ require "codeinventory"
 require "codeinventory/cli/app"
 require "codeinventory/cli/csv"
 require "codeinventory/cli/json"
+require "codeinventory/cli/combine"
 
 module CodeInventory
   module CLI
