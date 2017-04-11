@@ -67,10 +67,10 @@ The CLI can be extended to support other sources just by installing a gem. For i
 ```
 $ codeinv
 Commands:
-  codeinv csv FILENAME                                     # Build an inventory from a CSV file
-  codeinv github GITHUB_ACCESS_TOKEN GITHUB_ORG [OPTIONS]  # Build an inventory from GitHub
-  codeinv help [COMMAND]                                   # Describe available commands or one s...
-  codeinv json FILENAME                                    # Build an inventory from a JSON file
+  codeinv csv FILENAME                                        # Build an inventory from a CSV file
+  codeinv github GITHUB_ORG -a GITHUB_ACCESS_TOKEN [OPTIONS]  # Build an inventory from GitHub
+  codeinv help [COMMAND]                                      # Describe available commands or one s...
+  codeinv json FILENAME                                       # Build an inventory from a JSON file
 ```
 
 
