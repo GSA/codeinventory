@@ -1,4 +1,3 @@
-require "codeinventory"
 require "codeinventory/cli/app"
 require "codeinventory/cli/csv"
 require "codeinventory/cli/json"

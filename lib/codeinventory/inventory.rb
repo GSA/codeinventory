@@ -16,7 +16,7 @@ module CodeInventory
     end
 
     def generate(agency, version)
-      output = {
+      {
         "agency": agency,
         "version": version,
         "projects": projects
