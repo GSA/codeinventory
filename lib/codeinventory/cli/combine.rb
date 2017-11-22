@@ -13,9 +13,12 @@ module CodeInventory
           exit 1
         end
         combined = {
-          "version" => "1.0.1",
+          "version" => "2.0.0",
           "agency" => agency,
-          "projects" => []
+          "measurementType" => {
+            "method" => "modules"
+          },
+          "releases" => []
         }
         filenames.each do |filename|
           if !File.exist? filename
@@ -23,13 +26,13 @@ module CodeInventory
             exit 1
           end
           inventory = JSON.load(File.new(filename))
-          projects = inventory["projects"]
+          projects = inventory["releases"]
           if options[:replace]
             projects.each do |project|
               project["organization"] = inventory["agency"] if !inventory["agency"].nil?
             end
           end
-          combined["projects"].concat(projects)
+          combined["releases"].concat(projects)
         end
         if options["pretty"]
           puts JSON.pretty_generate(combined)

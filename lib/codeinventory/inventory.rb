@@ -19,7 +19,10 @@ module CodeInventory
       {
         "agency": agency,
         "version": version,
-        "projects": projects
+        "measurementType" => {
+          "method" => "modules"
+        },
+        "releases": projects
       }
     end
   end
