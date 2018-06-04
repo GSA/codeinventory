@@ -14,7 +14,7 @@ module CodeInventory
         end
         source = CodeInventory::CSVFile.new(file)
         inventory = CodeInventory::Inventory.new(source)
-        output = inventory.generate(agency, "1.0.1")
+        output = inventory.generate(agency, "2.0.0")
         puts JSON.pretty_generate(output)
       end
     end
